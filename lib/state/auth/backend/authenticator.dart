@@ -6,7 +6,7 @@ import 'package:instagram_clone/state/auth/models/auth_result.dart';
 import 'package:instagram_clone/state/posts/typedefs/user_id.dart';
 
 class Authenticator {
-  // const Authenticator();
+  const Authenticator();
   UserId? get userId => FirebaseAuth.instance.currentUser?.uid;
   bool get isAlreadyLoggedIn => userId != null;
   String get displayNAme =>
