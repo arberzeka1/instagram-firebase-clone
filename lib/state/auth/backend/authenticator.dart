@@ -48,14 +48,12 @@ class Authenticator {
   }
 
   Future<AuthResult> loginWithGoogle() async {
-    print('HEREEE');
     final GoogleSignIn googleSignIn = GoogleSignIn(
       scopes: [
         Constants.emailScope,
       ],
     );
     final signInAccount = await googleSignIn.signIn();
-    print('SIGN IN $signInAccount');
     if (signInAccount == null) {
       return AuthResult.aborted;
     }
@@ -68,7 +66,6 @@ class Authenticator {
       await FirebaseAuth.instance.signInWithCredential(oauthCredential);
       return AuthResult.success;
     } catch (e) {
-      print('Errororor $e');
       return AuthResult.failure;
     }
   }
